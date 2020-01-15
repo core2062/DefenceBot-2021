@@ -6,23 +6,20 @@
 #include <CORERobotLib.h>
 #include <DriveSubsystem.h>
 
-/* Drive Motor Ports */
-//Right Front Drive Motor
-#define RIGHT_FRONT_PORT 1
-//Right Back Drive Motor
-#define RIGHT_BACK_PORT 2
-//Left Front Drive Motor
-#define LEFT_FRONT_PORT 3
-//Left Back Drive Motor
-#define LEFT_BACK_PORT 4
+/* Drive ports */
+#define RIGHT_FRONT_PORT 10
+#define RIGHT_BACK_PORT 11
+#define LEFT_FRONT_PORT 12
+#define LEFT_BACK_PORT 13
 
 /* Solenoids */
-// Drive 
-#define DRIVE_SHIFTER_PCM 0
-#define COMPRESSOR_PCM 0
-
-#define DRIVE_SHIFTER_HIGH_GEAR_PORT 6
-#define DRIVE_SHIFTER_LOW_GEAR_PORT 7
+#define LEFT_DRIVE_SHIFTER_PCM 1
+#define RIGHT_DRIVE_SHIFTER_PCM 1
+#define COMPRESSOR_PCM 2
+#define LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT 0
+#define RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT 2 
+#define LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT 1
+#define RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT 3
 
 using namespace CORE;
 using namespace std;
@@ -34,10 +31,6 @@ public:
     void teleopInit() override;
     void teleop() override;
 	void test() override;
-	static Robot * GetInstance();
-
+	void testInit() override;
 	DriveSubsystem driveSubsystem;
-
-private:
-	static Robot * m_instance;
 };

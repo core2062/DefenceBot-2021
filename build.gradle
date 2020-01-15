@@ -52,7 +52,7 @@ model {
             }
             binaries.all {
                 cppCompiler.args('-g')
-                linker.args("-L../CORERobotLib2018/lib/debug",'-lCORERobotLib2018')
+                ypointlinker.args("-L../WaypointCORERobotLib/lib/debug",'-lWaypointCORERobotLib')
             }
             sources.cpp {
                 source {
@@ -61,9 +61,9 @@ model {
                 }
                 exportedHeaders {
                     srcDir 'src'
-                    srcDirs '../CORERobotLib2018/src' 
-                    srcDir "../CORERobotLib2018/3rdparty/json/src/"
-                    srcDir "../CORERobotLib2018/3rdparty/seasocks/src/main/c"
+                    srcDirs '../WaypointCORERobotLib/src' 
+                    srcDir "../WaypointCORERobotLib/3rdparty/json/src/"
+                    srcDir "../WaypointCORERobotLib/3rdparty/seasocks/src/main/c"
                     if (includeSrcInIncludeRoot) {
                         srcDir 'src'
                     }
