@@ -52,7 +52,7 @@ model {
             }
             binaries.all {
                 cppCompiler.args('-g')
-                ypointlinker.args("-L../WaypointCORERobotLib/lib/debug",'-lWaypointCORERobotLib')
+                linker.args("-L../WaypointCORERobotLib/lib/debug",'-lWaypointCORERobotLib')
             }
             sources.cpp {
                 source {
