@@ -5,6 +5,9 @@
 #include <frc/WPILib.h>
 #include <CORERobotLib.h>
 #include <DriveSubsystem.h>
+#include <LauncherSubsystem.h>
+#include <ClimberSubsystem.h>
+#include <IntakeSubsystem.h>
 
 /* Drive ports */
 #define RIGHT_FRONT_PORT 10
