@@ -2,15 +2,15 @@
 
 #include <string>
 
-#include <frc/WPILib.h>
+#include <frc/TimedRobot.h>
 #include <CORERobotLib.h>
 #include <DriveSubsystem.h>
 
 /* Drive ports */
-#define RIGHT_FRONT_PORT 10
-#define RIGHT_BACK_PORT 11
-#define LEFT_FRONT_PORT 12
-#define LEFT_BACK_PORT 13
+#define RIGHT_FRONT_PORT 4
+#define RIGHT_BACK_PORT 5
+#define LEFT_FRONT_PORT 6
+#define LEFT_BACK_PORT 7
 
 /* Solenoids */
 #define LEFT_DRIVE_SHIFTER_PCM 1

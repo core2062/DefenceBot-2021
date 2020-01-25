@@ -17,7 +17,6 @@ DriveSubsystem::DriveSubsystem() : driveTurnkP("Drive Turn P Value", .05),
                                    m_leftDriveShifter(LEFT_DRIVE_SHIFTER_PCM, LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT, LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT),
                                    m_rightDriveShifter(RIGHT_DRIVE_SHIFTER_PCM, RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT, RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT),
 								   m_highGear(true),
-								   m_turnPIDMultiplier("Turn PID Multiplier", 0.1),
 								   compressor(COMPRESSOR_PCM) {
 }
 
