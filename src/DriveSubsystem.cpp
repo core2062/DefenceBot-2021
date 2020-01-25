@@ -15,7 +15,8 @@ DriveSubsystem::DriveSubsystem() :
 		m_etherQuickTurnValue("Ether Quick Turn Value", 1.0),
         m_ticksPerInch("Ticks Per Inch", (4 * 3.1415) / 1024),
         compressor(COMPRESSOR_PCM),
-        m_leftDriveShifter(DRIVE_SHIFTER_PCM, DRIVE_SHIFTER_HIGH_GEAR_PORT, DRIVE_SHIFTER_LOW_GEAR_PORT) {
+        m_leftDriveShifter(LEFT_DRIVE_SHIFTER_PCM, LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT, LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT),
+        m_rightDriveShifter(RIGHT_DRIVE_SHIFTER_PCM, RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT, RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT) {
 
     try {
         m_gyro = new AHRS(SPI::Port::kMXP);

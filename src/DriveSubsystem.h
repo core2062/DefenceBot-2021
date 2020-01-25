@@ -22,8 +22,6 @@ public:
 	void teleopEnd() override;
 	void preLoopTask() override;
 
-    void disabledTask() override;
-
 	void initTalons();
 	void autonInitTask() override;
 
@@ -39,7 +37,7 @@ public:
 private:
     COREConstant<double> m_etherAValue, m_etherBValue, m_etherQuickTurnValue, m_ticksPerInch;
     Compressor compressor;
-	DoubleSolenoid m_leftDriveShifter;
+	DoubleSolenoid m_leftDriveShifter, m_rightDriveShifter;
 	bool m_highGear;
 	double m_wheelbase = 20.8;
 	double m_trackwidth = 25.881;
