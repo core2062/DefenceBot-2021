@@ -26,20 +26,36 @@ void LauncherSubsystem::teleopInit() {
 
 void LauncherSubsystem::teleop() {
     bool launcherOn = false;
-        // speed adustment code start #2
-    bool m_yButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::Y_BUTTON);
-    bool m_aButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::A_BUTTON);
-    bool m_xButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::X_BUTTON);
-    bool m_bButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::B_BUTTON);
-        // speed adustment code end #2
-
+    // speed adustment code start #2
+    bool m_yButtonPressed = operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::Y_BUTTON);
+    bool m_aButtonPressed = operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::A_BUTTON);
+    bool m_xButtonPressed = operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::X_BUTTON);
+    bool m_bButtonPressed = operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::B_BUTTON);
+    // speed adustment code end #2
 
     if (!launcherOn && operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
         launcherOn = true;
     } else if (launcherOn && operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
         launcherOn = false;
     }
-    
+
+    // speed adustment code start #3
+    // Changes motor speeds
+    if (m_yButtonPressed && m_topMotorSpeed < 1) {
+        // Increases top motor speed by 1 percent
+        m_topMotorSpeed = m_topMotorSpeed + 0.05;
+    } else if (m_aButtonPressed && (m_topMotorSpeed > -1)) {
+        // Decreases top motor speed by 1 percent
+        m_topMotorSpeed = m_topMotorSpeed - 0.05;
+    } else if (m_xButtonPressed && (m_bottomMotorSpeed < 1)) {
+        // Increases top motor speed by 1 percent
+        m_bottomMotorSpeed = m_bottomMotorSpeed + 0.05;
+    } else if (m_bButtonPressed && (m_bottomMotorSpeed > -1)) {
+        // Decreases top motor speed by 1 percent
+        m_bottomMotorSpeed = m_bottomMotorSpeed - 0.05;
+    }
+    // speed adustment code end #3
+
     if (launcherOn) {
         m_topMotor.Set(ControlMode::PercentOutput, m_topMotorSpeed);
         m_bottomMotor.Set(ControlMode::PercentOutput, m_bottomMotorSpeed);
@@ -47,25 +63,7 @@ void LauncherSubsystem::teleop() {
         m_topMotor.Set(ControlMode::PercentOutput, 0.0);
         m_bottomMotor.Set(ControlMode::PercentOutput, 0.0);
     }
-    // speed adustment code start #3
-    // Changes motor speeds
-    if (m_yButtonPressed) {
-        // Increases top motor speed by 2 percent
-        m_topMotorSpeed = m_topMotorSpeed + 0.1;
-    } else if (m_aButtonPressed) {
-        // Decreases top motor speed by 2 percent
-        m_topMotorSpeed = m_topMotorSpeed - 0.1;
-    } else if (m_xButtonPressed) {
-        // Increases top motor speed by 2 percent
-        m_bottomMotorSpeed = m_bottomMotorSpeed + 0.1;
-    } else if (m_bButtonPressed) {
-        // Decreases top motor speed by 2 percent
-        m_bottomMotorSpeed = m_bottomMotorSpeed - 0.1;
-    }
-    // speed adustment code end #3
+
     SmartDashboard::PutNumber("Top Motor Percent Speed", m_topMotorSpeed);
     SmartDashboard::PutNumber("Bottom Motor Percent Speed", m_bottomMotorSpeed);
 }
-
-
-
