@@ -16,4 +16,5 @@ public:
 private: 
     TalonSRX m_conveyorMotor1, m_conveyorMotor2;
     COREConstant<double> m_conveyorSpeed;
+};
 

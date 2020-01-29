@@ -53,6 +53,7 @@ model {
             binaries.all {
                 cppCompiler.args('-g')
                 linker.args("-L../WaypointCORERobotLib/lib/debug",'-lCORERobotLib')
+                linker.args("-Lc:/users/public/robotlib2020",'-lz')
             }
             sources.cpp {
                 source {

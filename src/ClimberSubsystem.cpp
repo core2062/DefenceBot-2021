@@ -1,14 +1,14 @@
 #include <ClimberSubsystem.h>
 #include <Robot.h>
 
-void robotInit() {
+void ClimberSubsystem::robotInit() {
 
 }
 
-void teleopInit() {
+void ClimberSubsystem::teleopInit() {
 
 }
 
-void teleop() {
+void ClimberSubsystem::teleop() {
     
 }

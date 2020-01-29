@@ -1,5 +1,5 @@
 #include <IntakeSubsystem.h>
-#inlcude <Robot.h>
+#include <Robot.h>
 
 using namespace CORE;
 
@@ -11,8 +11,8 @@ IntakeSubsystem::IntakeSubsystem() : m_intakeMotor(INTAKE_PORT),
 
 void IntakeSubsystem::robotInit(){
     m_intakeMotor.Set(ControlMode::PercentOutput, 0);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON);
+    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER);
+    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON);
     m_isIntakeDown = false;
 }
 
@@ -21,13 +21,13 @@ void IntakeSubsystem::teleopInit(){
 }
 
 void IntakeSubsystem::teleop(){
-    if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)){
+    if(operatorJoystick->getButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)){
        SetIntake(m_intakeSpeed.Get());
     }
     else{
        SetIntake(0.0);
     }
-    if (operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
+    if (operatorJoystick->getButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
         ToggleIntake();
     }
 }

@@ -1,5 +1,5 @@
 #include <ConveyorSubsystem.h>
-#inlcude <Robot.h>
+#include <Robot.h>
 
 using namespace CORE;
 
@@ -14,8 +14,8 @@ void ConveyorSubsystem::robotInit(){
     m_conveyorMotor2.Set(ControlMode::PercentOutput, 0);
     m_conveyorMotor1.SetInverted(true);
     m_conveyorMotor2.SetInverted(false);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON);
+    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
+    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON);
 }
 
 void ConveyorSubsystem::teleopInit(){
@@ -23,13 +23,11 @@ void ConveyorSubsystem::teleopInit(){
 }
 
 void ConveyorSubsystem::teleop(){
-    if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)){
-        setMotor(conveyorSpeed.Get());
-    }
-    else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON)){
-        setMotor(-conveyorSpeed.Get());
-    }
-    else{
+    if(operatorJoystick->getButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
+        setMotor(m_conveyorSpeed.Get());
+    } else if(operatorJoystick->getButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON)) {
+        setMotor(-m_conveyorSpeed.Get());
+    } else {
         setMotor(0.0);
     }
 }

@@ -1,5 +1,8 @@
 #pragma once
 
+#include <CORERobotLib.h>
+#include <Robot.h>
+
 using namespace CORE;
 
 class ClimberSubsystem : public CORESubsystem {
@@ -9,4 +12,4 @@ public:
     void teleopInit() override;
     void teleop() override;
 private:
-}
+};

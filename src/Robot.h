@@ -16,6 +16,9 @@
 #define LEFT_FRONT_PORT 12
 #define LEFT_BACK_PORT 13
 #define INTAKE_PORT 14
+#define CONVEYOR_1_PORT 15
+#define CONVEYOR_2_PORT 16
+#define TURRET_PORT 17
 
 
 /* Solenoids */
@@ -46,6 +49,4 @@ public:
 	void test() override;
 	void testInit() override;
 	DriveSubsystem driveSubsystem;
-	IntakeSubsystem intakeSubsystem;
-	ConveyorSubsystem conveyorSubsystem;
 };

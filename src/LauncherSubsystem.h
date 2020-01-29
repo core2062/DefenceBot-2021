@@ -15,4 +15,4 @@ public:
 private:
     TalonSRX m_topMotor, m_bottomMotor;
     double m_topMotorSpeed, m_bottomMotorSpeed;
-}
+};
