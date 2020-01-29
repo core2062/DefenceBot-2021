@@ -1,6 +1,5 @@
 #pragma once
 
-
 using namespace CORE;
 
 class ClimberSubsystem : public CORESubsystem {
@@ -10,6 +9,4 @@ public:
     void teleopInit() override;
     void teleop() override;
 private:
-
-
 }

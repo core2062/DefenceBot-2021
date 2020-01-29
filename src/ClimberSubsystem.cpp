@@ -1,4 +1,6 @@
 #include <ClimberSubsystem.h>
+#include <Robot.h>
+
 void robotInit() {
 
 }
