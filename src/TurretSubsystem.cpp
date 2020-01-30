@@ -24,6 +24,10 @@ void TurretSubsystem::teleopInit() {
 }
 
 void TurretSubsystem::teleop() {
+    corePID.setDerivativeConstant(m_KD.Get());
+    corePID.setFeedForwardConstant(m_KF.Get());
+    corePID.setIntegralConstant(m_KI.Get());
+    corePID.setProportionalConstant(m_KP.Get());
     auto table = ntinst.GetTable("limelight");
     bool hasCenterX = table->GetNumber("tv", 0.0) == 1;
     double conversion = 4096 / -360; // convert degrees to ticks
