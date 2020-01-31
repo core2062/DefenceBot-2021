@@ -23,9 +23,9 @@ DriveSubsystem::DriveSubsystem() : driveTurnkP("Drive Turn P Value", .05),
 
 void DriveSubsystem::robotInit() {
 	// Registers joystick axis and buttons, does inital setup for talons
-	driverJoystick->registerAxis(CORE::COREJoystick::LEFT_STICK_Y);
-	driverJoystick->registerAxis(CORE::COREJoystick::RIGHT_STICK_X);
-	driverJoystick->registerButton(CORE::COREJoystick::RIGHT_TRIGGER);
+	driverJoystick->RegisterAxis(CORE::COREJoystick::LEFT_STICK_Y);
+	driverJoystick->RegisterAxis(CORE::COREJoystick::RIGHT_STICK_X);
+	driverJoystick->RegisterButton(CORE::COREJoystick::RIGHT_TRIGGER);
     InitTalons();
 }
 
@@ -40,15 +40,15 @@ void DriveSubsystem::teleopInit() {
 void DriveSubsystem::teleop() {
 	// Code for teleop. Sets motor speed based on the values for the joystick, runs compressor, 
 	// toggles gears
-    double mag = -driverJoystick->getAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_Y);
-	double rot = driverJoystick->getAxis(CORE::COREJoystick::JoystickAxis::RIGHT_STICK_X);
+    double mag = -driverJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_Y);
+	double rot = driverJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::RIGHT_STICK_X);
 
 	VelocityPair speeds = COREEtherDrive::calculate(mag, rot, .1);
 	SetMotorSpeed(speeds.left, speeds.right);
 	SmartDashboard::PutNumber("Left side speed", speeds.left);
 	SmartDashboard::PutNumber("Right side speed", speeds.right);
 
-	if(driverJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
+	if(driverJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
 		ToggleGear();
 	}
 	FillCompressor();

@@ -14,8 +14,8 @@ void ConveyorSubsystem::robotInit(){
     m_conveyorMotor2.Set(ControlMode::PercentOutput, 0);
     m_conveyorMotor1.SetInverted(true);
     m_conveyorMotor2.SetInverted(false);
-    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
-    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON);
 }
 
 void ConveyorSubsystem::teleopInit(){
@@ -23,9 +23,9 @@ void ConveyorSubsystem::teleopInit(){
 }
 
 void ConveyorSubsystem::teleop(){
-    if(operatorJoystick->getButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
+    if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
         setMotor(m_conveyorSpeed.Get());
-    } else if(operatorJoystick->getButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON)) {
+    } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON)) {
         setMotor(-m_conveyorSpeed.Get());
     } else {
         setMotor(0.0);

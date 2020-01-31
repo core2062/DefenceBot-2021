@@ -11,12 +11,12 @@ LauncherSubsystem::LauncherSubsystem() : m_topMotor(TOP_LAUNCHER_MOTOR_PORT),
 void LauncherSubsystem::robotInit() {
     // Registers joystick axis and buttons, does inital setup for talons
     // speed adustment code start #1
-    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::A_BUTTON);
-    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::B_BUTTON);
-    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::X_BUTTON);
-    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::Y_BUTTON);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::A_BUTTON);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::B_BUTTON);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::X_BUTTON);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::Y_BUTTON);
     // speed adustment code end #1
-    operatorJoystick->registerButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
 }
 
 void LauncherSubsystem::teleopInit() {
@@ -27,15 +27,15 @@ void LauncherSubsystem::teleopInit() {
 void LauncherSubsystem::teleop() {
     bool launcherOn = false;
     // speed adustment code start #2
-    bool m_yButtonPressed = operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::Y_BUTTON);
-    bool m_aButtonPressed = operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::A_BUTTON);
-    bool m_xButtonPressed = operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::X_BUTTON);
-    bool m_bButtonPressed = operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::B_BUTTON);
+    bool m_yButtonPressed = operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::Y_BUTTON);
+    bool m_aButtonPressed = operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::A_BUTTON);
+    bool m_xButtonPressed = operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::X_BUTTON);
+    bool m_bButtonPressed = operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::B_BUTTON);
     // speed adustment code end #2
 
-    if (!launcherOn && operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
+    if (!launcherOn && operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
         launcherOn = true;
-    } else if (launcherOn && operatorJoystick->getRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
+    } else if (launcherOn && operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
         launcherOn = false;
     }
 

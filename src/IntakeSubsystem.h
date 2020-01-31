@@ -5,6 +5,7 @@
 #include <ctre/Phoenix.h>
 #include <Robot.h>
 
+using namespace CORE;
 using namespace frc;
 
 class IntakeSubsystem : public CORESubsystem {
