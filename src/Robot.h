@@ -9,12 +9,13 @@
 #include <ClimberSubsystem.h>
 #include <IntakeSubsystem.h>
 #include <ConveyorSubsystem.h>
+#include <Auton.h>
 
 /* Drive ports */
-#define RIGHT_FRONT_PORT 10
-#define RIGHT_BACK_PORT 11
-#define LEFT_FRONT_PORT 12
-#define LEFT_BACK_PORT 13
+#define RIGHT_FRONT_PORT 20
+#define RIGHT_BACK_PORT 1
+#define LEFT_FRONT_PORT 19
+#define LEFT_BACK_PORT 32
 #define INTAKE_PORT 14
 #define CONVEYOR_1_PORT 15
 #define CONVEYOR_2_PORT 16
@@ -48,5 +49,9 @@ public:
     void teleop() override;
 	void test() override;
 	void testInit() override;
+	static Robot * GetInstance();
 	DriveSubsystem driveSubsystem;
+	Autonomous controlledAutonomous;
+private:
+	static Robot * m_instance;
 };

@@ -36,9 +36,8 @@ void DriveSubsystem::teleopInit() {
 	InitTalons();
 }
 
-
 void DriveSubsystem::teleop() {
-	// Code for teleop. Sets motor speed based on the values for the joystick, runs compressor, 
+	// Code for teleop. Sets motor speed based on the values for the joystick, runs compressor,
 	// toggles gears
     double mag = -driverJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_Y);
 	double rot = driverJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::RIGHT_STICK_X);
@@ -52,7 +51,6 @@ void DriveSubsystem::teleop() {
 		ToggleGear();
 	}
 	FillCompressor();
-
 }
 
 void DriveSubsystem::ToggleGear() {
@@ -108,7 +106,7 @@ void DriveSubsystem::SetMotorSpeed(double speedInFraction, DriveSide whichSide) 
 }
 
 void DriveSubsystem::SetMotorSpeed(double leftPercent, double rightPercent) {
-	// Sets speed based on percent output desired 
+	// Sets speed based on percent output desired
 	SetMotorSpeed(leftPercent, DriveSide::LEFT);
 	SetMotorSpeed(rightPercent, DriveSide::RIGHT);
 }
