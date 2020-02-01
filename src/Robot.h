@@ -9,7 +9,9 @@
 #include <ClimberSubsystem.h>
 #include <IntakeSubsystem.h>
 #include <ConveyorSubsystem.h>
+#include <COREFramework/COREScheduler.h>
 #include <Auton.h>
+#include <iostream>
 
 /* Drive ports */
 #define RIGHT_FRONT_PORT 20

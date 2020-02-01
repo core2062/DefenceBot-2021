@@ -1,6 +1,4 @@
 #include <LauncherSubsystem.h>
-#include <Robot.h>
-#include <frc/WPILib.h>
 
 using namespace CORE;
 

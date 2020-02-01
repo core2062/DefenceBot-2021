@@ -1,6 +1,5 @@
 #include <TurretSubsystem.h>
-#include <Robot.h>
-#include <COREControl/COREPID.h>
+
 TurretSubsystem::TurretSubsystem(): m_turret(TURRET_PORT),
                                     m_KP("KP", 0.0005),
                                     m_KI("KI", 0),

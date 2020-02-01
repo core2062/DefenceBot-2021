@@ -1,7 +1,7 @@
 #pragma once
 
 #include <CORERobotLib.h>
-#include <frc/WPILib.h>
+#include <frc/DoubleSolenoid.h>
 #include <ctre/Phoenix.h>
 #include <Robot.h>
 

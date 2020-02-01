@@ -1,11 +1,5 @@
 #include <Robot.h>
 
-#include <iostream>
-
-#include <frc/WPILib.h>
-
-#include <COREFramework/COREScheduler.h>
-
 Robot * Robot::m_instance;
 
 Robot::Robot() {

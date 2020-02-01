@@ -15,6 +15,7 @@
   },
   "C_Cpp.default.configurationProvider": "vscode-wpilib",
   "files.associations": {
+    "functional": "cpp",
     "array": "cpp",
     "atomic": "cpp",
     "*.tcc": "cpp",
@@ -41,7 +42,6 @@
     "vector": "cpp",
     "exception": "cpp",
     "algorithm": "cpp",
-    "functional": "cpp",
     "iterator": "cpp",
     "map": "cpp",
     "memory": "cpp",
@@ -76,6 +76,7 @@
     "cinttypes": "cpp",
     "complex": "cpp",
     "typeinfo": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "*.inc": "cpp"
   }
 }

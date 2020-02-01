@@ -1,6 +1,6 @@
-#include "ctre/Phoenix.h"
-#include "DriveSubsystem.h"
-#include "Robot.h"
+
+#include <DriveSubsystem.h>
+#include <Robot.h>
 
 DriveSubsystem::DriveSubsystem() :
 		m_leftMaster(LEFT_FRONT_PORT),
@@ -11,10 +11,9 @@ DriveSubsystem::DriveSubsystem() :
         m_etherBValue("Ether B Value", .4),
 		m_etherQuickTurnValue("Ether Quick Turn Value", 1.0),
         m_ticksPerInch("Ticks Per Inch", (4 * 3.1415) / 1024),
-        compressor(COMPRESSOR_PCM),
         m_leftDriveShifter(LEFT_DRIVE_SHIFTER_PCM, LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT, LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT),
-        m_rightDriveShifter(RIGHT_DRIVE_SHIFTER_PCM, RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT, RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT)
-		 {
+        m_rightDriveShifter(RIGHT_DRIVE_SHIFTER_PCM, RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT, RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT),
+		compressor(COMPRESSOR_PCM) {
 }
 
 void DriveSubsystem::robotInit() {
