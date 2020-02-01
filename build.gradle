@@ -52,8 +52,7 @@ model {
             }
             binaries.all {
                 cppCompiler.args('-g')
-                linker.args("-L../WaypointCORERobotLib/lib/debug",'-lCORERobotLib')
-                linker.args("-L/Users/Public/robotlib2020", '-lz')
+                linker.args("-L../CORERobotLib/lib/debug",'-lCORERobotLib')
             }
             sources.cpp {
                 source {
@@ -62,9 +61,8 @@ model {
                 }
                 exportedHeaders {
                     srcDir 'src'
-                    srcDirs '../WaypointCORERobotLib/src' 
-                    srcDir "../WaypointCORERobotLib/3rdparty/json/src/"
-                    srcDir "../WaypointCORERobotLib/3rdparty/seasocks/src/main/c"
+                    srcDirs '../CORERobotLib/src' 
+                    srcDir "../CORERobotLib/3rdparty/json/src/"
                     if (includeSrcInIncludeRoot) {
                         srcDir 'src'
                     }

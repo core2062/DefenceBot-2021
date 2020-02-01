@@ -8,39 +8,29 @@
 
 #include <frc/Compressor.h>
 #include <frc/DoubleSolenoid.h>
-#include "WaypointFollower/WaypointFollower.h"
 #include "COREUtilities/CORETimer.h"
 
 enum class DriveSide{LEFT = 1, RIGHT = 2, BOTH = 3};
 
-class DriveSubsystem : public CORESubsystem, public CORETask {
+class DriveSubsystem : public CORESubsystem {
 public:
 	DriveSubsystem();
 	void robotInit() override;
 	void teleopInit() override;
 	void teleop() override;
 	void teleopEnd() override;
-	void preLoopTask() override;
 
 	void initTalons();
-	void autonInitTask() override;
 
 	void setMotorSpeed(double speedInFraction, DriveSide whichSide);
 	void setMotorSpeed(double leftPercent, double rightPercent);
 	void fillCompressor();
 	void toggleGear();
-	AdaptivePursuit m_pursuit;
-	COREConstant<double> m_lookAhead, m_driveTurnkP;
 	COREVector path;
-    TalonSRX m_leftMaster, m_rightMaster, m_leftSlave, m_rightSlave;
-
 private:
     COREConstant<double> m_etherAValue, m_etherBValue, m_etherQuickTurnValue, m_ticksPerInch;
+    TalonSRX m_leftMaster, m_rightMaster, m_leftSlave, m_rightSlave;
+    DoubleSolenoid m_leftDriveShifter, m_rightDriveShifter;
+    bool m_highGear;
     Compressor compressor;
-	DoubleSolenoid m_leftDriveShifter, m_rightDriveShifter;
-	bool m_highGear;
-	double m_wheelbase = 20.8;
-	double m_trackwidth = 25.881;
-	AHRS *m_gyro;
-    int count = 0;
 };
