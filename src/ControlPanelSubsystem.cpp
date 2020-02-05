@@ -22,7 +22,7 @@ void ControlPanelSubsystem::teleop() {
      * an object is the more light from the surroundings will bleed into the 
      * measurements and make it difficult to accurately determine its color.
      */
-    frc::9890-p;;l/.Color detectedColor = m_colorSensor.GetColor();
+    frc::Color detectedColor = m_colorSensor.GetColor();
 
     /**
      * The sensor returns a raw IR value of the infrared light detected.
