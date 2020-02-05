@@ -1,4 +1,4 @@
-#include <Auton.h>
+#include <Autonomous/Auton.h>
 
 Autonomous::Autonomous() : COREAuton("Test Auto") {}
 

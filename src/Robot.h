@@ -10,7 +10,7 @@
 #include <IntakeSubsystem.h>
 #include <ConveyorSubsystem.h>
 #include <COREFramework/COREScheduler.h>
-#include <Auton.h>
+#include <Autonomous/Auton.h>
 #include <iostream>
 
 /* Drive ports */
