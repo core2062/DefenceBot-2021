@@ -1,11 +1,11 @@
 #pragma once
 
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <ctre/Phoenix.h>
 #include <CORERobotLib.h>
 #include <networktables/NetworkTableInstance.h>
 #include <COREControl/COREPID.h>
-
-#define TURRET_PORT 17
+#include "Config.h"
 
 using namespace CORE;
 using namespace frc;

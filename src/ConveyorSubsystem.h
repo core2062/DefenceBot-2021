@@ -2,7 +2,7 @@
 
 #include <CORERobotLib.h>
 #include <ctre/Phoenix.h>
-#include <Robot.h>
+#include "Config.h"
 
 class ConveyorSubsystem : public CORESubsystem {
 public:

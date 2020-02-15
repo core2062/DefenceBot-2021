@@ -1,44 +1,19 @@
 #pragma once
 
 #include <string>
-
+#include <iostream>
+#include <frc/RobotBase.h>
 #include <frc/TimedRobot.h>
 #include <CORERobotLib.h>
-#include <DriveSubsystem.h>
-#include <LauncherSubsystem.h>
-#include <TurretSubsystem.h>
-#include <ClimberSubsystem.h>
-#include <IntakeSubsystem.h>
-#include <ConveyorSubsystem.h>
 #include <COREFramework/COREScheduler.h>
-#include <Autonomous/Auton.h>
-#include <iostream>
-
-/* Drive ports */
-#define RIGHT_FRONT_PORT 20
-#define RIGHT_BACK_PORT 1
-#define LEFT_FRONT_PORT 19
-#define LEFT_BACK_PORT 32
-#define INTAKE_PORT 14
-#define CONVEYOR_1_PORT 15
-#define CONVEYOR_2_PORT 16
-
-
-/* Solenoids */
-#define LEFT_DRIVE_SHIFTER_PCM 1
-#define RIGHT_DRIVE_SHIFTER_PCM 1
-#define COMPRESSOR_PCM 2
-#define LEFT_DRIVE_SHIFTER_HIGH_GEAR_PORT 0
-#define RIGHT_DRIVE_SHIFTER_HIGH_GEAR_PORT 2 
-#define LEFT_DRIVE_SHIFTER_LOW_GEAR_PORT 1
-#define RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT 3
-#define INTAKE_DOWN_PORT 4
-#define INTAKE_UP_PORT 5
-
-
-/* Launcher Ports */
-#define TOP_LAUNCHER_MOTOR_PORT 15
-#define BOTTOM_LAUNCHER_MOTOR_PORT 16
+#include "ClimberSubsystem.h"
+#include "ControlPanelSubsystem.h"
+#include "ConveyorSubsystem.h"
+#include "DriveSubsystem.h"
+#include "IntakeSubsystem.h"
+#include "LauncherSubsystem.h"
+#include "TurretSubsystem.h"
+#include "Config.h"
 
 using namespace CORE;
 using namespace std;
@@ -53,8 +28,10 @@ public:
 	void testInit() override;
 	static Robot * GetInstance();
 	DriveSubsystem driveSubsystem;
-	Autonomous controlledAutonomous;
+	LauncherSubsystem launcherSubsystem;
+	IntakeSubsystem intakeSubsystem;
 	TurretSubsystem turretSubsystem;
+	ConveyorSubsystem conveyorSubsystem;
 
 private:
 	static Robot * m_instance;

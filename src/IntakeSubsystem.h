@@ -1,12 +1,11 @@
 #pragma once
 
-#include <CORERobotLib.h>
 #include <frc/DoubleSolenoid.h>
 #include <ctre/Phoenix.h>
-#include <Robot.h>
+#include <CORERobotLib.h>
+#include "Config.h"
 
 using namespace CORE;
-using namespace frc;
 
 class IntakeSubsystem : public CORESubsystem {
 public:
@@ -18,7 +17,7 @@ public:
     void ToggleIntake();
 private:
     TalonSRX m_intakeMotor;
-    DoubleSolenoid m_intakeSolenoid;
+    frc::DoubleSolenoid m_intakeSolenoid;
     COREConstant<double> m_intakeSpeed;
     bool m_isIntakeDown;
 };

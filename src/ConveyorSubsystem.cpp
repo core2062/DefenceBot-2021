@@ -1,11 +1,10 @@
-#include <ConveyorSubsystem.h>
+#include "ConveyorSubsystem.h"
 
 using namespace CORE;
 
 ConveyorSubsystem::ConveyorSubsystem() : m_conveyorMotor1(CONVEYOR_1_PORT),
                                          m_conveyorMotor2(CONVEYOR_2_PORT),
-                                         m_conveyorSpeed("Conveyor Speed", 0){
-                                         
+                                         m_conveyorSpeed("Conveyor Speed", 0) {
 }
 
 void ConveyorSubsystem::robotInit(){
@@ -17,9 +16,7 @@ void ConveyorSubsystem::robotInit(){
     operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON);
 }
 
-void ConveyorSubsystem::teleopInit(){
-
-}
+void ConveyorSubsystem::teleopInit() {}
 
 void ConveyorSubsystem::teleop(){
     if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {

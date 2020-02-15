@@ -1,9 +1,8 @@
-#include <IntakeSubsystem.h>
+#include "IntakeSubsystem.h"
 
 IntakeSubsystem::IntakeSubsystem() : m_intakeMotor(INTAKE_PORT), 
                                      m_intakeSolenoid(LEFT_DRIVE_SHIFTER_PCM, INTAKE_DOWN_PORT, INTAKE_UP_PORT),
                                      m_intakeSpeed("Intake Speed", 0){
-
 }
 
 void IntakeSubsystem::robotInit(){
@@ -13,9 +12,7 @@ void IntakeSubsystem::robotInit(){
     m_isIntakeDown = false;
 }
 
-void IntakeSubsystem::teleopInit(){
-
-}
+void IntakeSubsystem::teleopInit() {}
 
 void IntakeSubsystem::teleop(){
     if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)){
@@ -39,5 +36,3 @@ void IntakeSubsystem::ToggleIntake() {
         m_intakeSolenoid.Set(frc::DoubleSolenoid::kReverse);
     }
 }
-
-using namespace CORE;

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <CORERobotLib.h>
-#include <Robot.h>
+#include "Config.h"
 
 using namespace CORE;
 
@@ -11,5 +11,4 @@ public:
     void robotInit() override;
     void teleopInit() override;
     void teleop() override;
-private:
 };

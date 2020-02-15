@@ -1,17 +1,10 @@
-#include <ControlPanelSubsystem.h>
-#include <frc/smartdashboard/SmartDashboard.h>
-#include <frc/TimedRobot.h>
+#include "ControlPanelSubsystem.h"
 
-void ControlPanelSubsystem::robotInit() {
+void ControlPanelSubsystem::robotInit() {}
 
-}
-
-void ControlPanelSubsystem::teleopInit() {
-
-}
+void ControlPanelSubsystem::teleopInit() {}
 
 void ControlPanelSubsystem::teleop() {
-
     /**
      * The method GetColor() returns a normalized color value from the sensor and can be
      * useful if outputting the color to an RGB LED or similar. To
@@ -22,43 +15,36 @@ void ControlPanelSubsystem::teleop() {
      * an object is the more light from the surroundings will bleed into the 
      * measurements and make it difficult to accurately determine its color.
      */
-    frc::Color detectedColor = m_colorSensor.GetColor();
+    // frc::Color detectedColor = m_colorSensor.GetColor();
 
     /**
      * The sensor returns a raw IR value of the infrared light detected.
      */
-    double IR = m_colorSensor.GetIR();
+    // double IR = m_colorSensor.GetIR();
 
     /**
      * Open Smart Dashboard or Shuffleboard to see the color detected by the 
      * sensor.
      */
-    frc::SmartDashboard::PutNumber("Red", detectedColor.red);
-    frc::SmartDashboard::PutNumber("Green", detectedColor.green);
-    frc::SmartDashboard::PutNumber("Blue", detectedColor.blue);
-    frc::SmartDashboard::PutNumber("IR", IR);
-    if((detectedColor.red > 0.29) & (detectedColor.green > 0.5)){
-      frc::SmartDashboard::PutString("Color", "Yellow");
-    }
-    else if(detectedColor.red > 0.29){
-      frc::SmartDashboard::PutString("Color", "Red");
-    }
-    else if(detectedColor.green > 0.5){
-      frc::SmartDashboard::PutString("Color", "Green");
-    }
-    else if(detectedColor.blue > 0.235){
-      frc::SmartDashboard::PutString("Color", "Blue");
-    }
+  //   frc::SmartDashboard::PutNumber("Red", detectedColor.red);
+  //   frc::SmartDashboard::PutNumber("Green", detectedColor.green);
+  //   frc::SmartDashboard::PutNumber("Blue", detectedColor.blue);
+  //   frc::SmartDashboard::PutNumber("IR", IR);
+  //   if((detectedColor.red > 0.29) & (detectedColor.green > 0.5)){
+  //     frc::SmartDashboard::PutString("Color", "Yellow");
+  //   }
+  //   else if(detectedColor.red > 0.29){
+  //     frc::SmartDashboard::PutString("Color", "Red");
+  //   }
+  //   else if(detectedColor.green > 0.5){
+  //     frc::SmartDashboard::PutString("Color", "Green");
+  //   }
+  //   else if(detectedColor.blue > 0.235){
+  //     frc::SmartDashboard::PutString("Color", "Blue");
+  //   }
 
-    uint32_t proximity = m_colorSensor.GetProximity();
+  //   uint32_t proximity = m_colorSensor.GetProximity();
 
-    frc::SmartDashboard::PutNumber("Proximity", proximity);
-  }
-
-
-#ifndef RUNNING_FRC_TESTS
-int main() { return frc::StartRobot<Robot>(); }
-#endif
-void Robot::TestPeriodic() {}
-    
+  //   frc::SmartDashboard::PutNumber("Proximity", proximity);
+  // }
 }

@@ -1,14 +1,16 @@
 #pragma once
 
-//#include "Robot.h"
-#include <CORERobotLib.h>
-#include <ctre/Phoenix.h>
-#include <AHRS.h>
-#include <COREFramework/COREScheduler.h>
-
 #include <frc/Compressor.h>
 #include <frc/DoubleSolenoid.h>
+#include <ctre/Phoenix.h>
+#include <AHRS.h>
+#include <CORERobotLib.h>
+#include <COREFramework/COREScheduler.h>
 #include <COREUtilities/CORETimer.h>
+#include "Config.h"
+
+using namespace CORE;
+using namespace frc;
 
 enum class DriveSide{LEFT = 1, RIGHT = 2, BOTH = 3};
 
@@ -21,7 +23,6 @@ public:
 	void teleopEnd() override;
 
 	void initTalons();
-
 	void setMotorSpeed(double speedInFraction, DriveSide whichSide);
 	void setMotorSpeed(double leftPercent, double rightPercent);
 	void fillCompressor();
