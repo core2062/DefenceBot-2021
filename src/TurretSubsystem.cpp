@@ -11,6 +11,7 @@ TurretSubsystem::TurretSubsystem(): m_turret(TURRET_PORT),
 
 void TurretSubsystem::robotInit() {
     operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::BACK_BUTTON);
+    operatorJoystick->RegisterAxis(CORE::COREJoystick::LEFT_STICK_X);
     InitTalons();
     // start NetworkTables
     ntinst = nt::NetworkTableInstance::GetDefault();
@@ -39,7 +40,8 @@ void TurretSubsystem::teleop() {
     if (hasCenterX && backButtonPressed && ((!atRightStop && centerError < 0) || (!atLeftStop && centerError > 0))) {
         SetTurret(motorPercent);
     } else {
-        SetTurret(0.0);
+        double manualInput = 0.5 * operatorJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_X);
+        SetTurret(manualInput);
     }
 
     SmartDashboard::PutNumber("Turret position", m_turret.GetSelectedSensorPosition(0));
