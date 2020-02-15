@@ -6,6 +6,7 @@
 #include <CORERobotLib.h>
 #include <DriveSubsystem.h>
 #include <LauncherSubsystem.h>
+#include <TurretSubsystem.h>
 #include <ClimberSubsystem.h>
 #include <IntakeSubsystem.h>
 #include <ConveyorSubsystem.h>
@@ -21,7 +22,6 @@
 #define INTAKE_PORT 14
 #define CONVEYOR_1_PORT 15
 #define CONVEYOR_2_PORT 16
-#define TURRET_PORT 17
 
 
 /* Solenoids */
@@ -54,6 +54,8 @@ public:
 	static Robot * GetInstance();
 	// DriveSubsystem driveSubsystem;
 	// Autonomous controlledAutonomous;
+	TurretSubsystem turretSubsystem;
+
 private:
 	static Robot * m_instance;
 };
