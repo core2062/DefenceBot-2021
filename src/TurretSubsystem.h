@@ -4,9 +4,11 @@
 #include <CORERobotLib.h>
 #include <networktables/NetworkTableInstance.h>
 #include <COREControl/COREPID.h>
-#include <Robot.h>
+
+#define TURRET_PORT 17
 
 using namespace CORE;
+using namespace frc;
 
 class TurretSubsystem : public CORESubsystem {
 private:
