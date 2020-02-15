@@ -7,6 +7,7 @@
 #include <Robot.h>
 
 using namespace CORE;
+using namespace frc;
 
 class TurretSubsystem : public CORESubsystem {
 private:

@@ -52,8 +52,8 @@ public:
 	void test() override;
 	void testInit() override;
 	static Robot * GetInstance();
-	DriveSubsystem driveSubsystem;
-	Autonomous controlledAutonomous;
+	// DriveSubsystem driveSubsystem;
+	// Autonomous controlledAutonomous;
 private:
 	static Robot * m_instance;
 };

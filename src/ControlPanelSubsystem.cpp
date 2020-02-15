@@ -1,4 +1,4 @@
-#include <ControlPanelSubsystem.h>
+/*#include <ControlPanelSubsystem.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/TimedRobot.h>
 
@@ -21,18 +21,18 @@ void ControlPanelSubsystem::teleop() {
      * well lit conditions (the built in LED is a big help here!). The farther
      * an object is the more light from the surroundings will bleed into the 
      * measurements and make it difficult to accurately determine its color.
-     */
+     * /
     frc::Color detectedColor = m_colorSensor.GetColor();
 
     /**
      * The sensor returns a raw IR value of the infrared light detected.
-     */
+     * /
     double IR = m_colorSensor.GetIR();
 
     /**
      * Open Smart Dashboard or Shuffleboard to see the color detected by the 
      * sensor.
-     */
+     * /
     frc::SmartDashboard::PutNumber("Red", detectedColor.red);
     frc::SmartDashboard::PutNumber("Green", detectedColor.green);
     frc::SmartDashboard::PutNumber("Blue", detectedColor.blue);
@@ -62,3 +62,4 @@ int main() { return frc::StartRobot<Robot>(); }
 void Robot::TestPeriodic() {}
     
 }
+*/

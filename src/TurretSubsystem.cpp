@@ -10,7 +10,7 @@ TurretSubsystem::TurretSubsystem(): m_turret(TURRET_PORT),
 }
 
 void TurretSubsystem::robotInit() {
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::X_BUTTON);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::BACK_BUTTON);
     InitTalons();
     // start NetworkTables
     ntinst = nt::NetworkTableInstance::GetDefault();
@@ -35,7 +35,7 @@ void TurretSubsystem::teleop() {
     double motorPercent = corePID.Calculate(centerError);
     bool atLeftStop = m_turret.GetSelectedSensorPosition(0) < (m_startupTurretPosition - 468.0);
     bool atRightStop = m_turret.GetSelectedSensorPosition(0) > (m_startupTurretPosition + 468.0);
-    bool xButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::X_BUTTON);
+    bool xButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::BACK_BUTTON);
     if (hasCenterX && xButtonPressed && ((!atRightStop && centerError < 0) || (!atLeftStop && centerError > 0))) {
         SetTurret(motorPercent);
     } else {
@@ -47,7 +47,7 @@ void TurretSubsystem::teleop() {
     SmartDashboard::PutBoolean("HasTable", hasCenterX);
     SmartDashboard::PutBoolean("At Left Stop", atLeftStop);
     SmartDashboard::PutBoolean("At Right Stop", atRightStop);
-    SmartDashboard::PutBoolean("X Button Pressed", operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::X_BUTTON));
+    SmartDashboard::PutBoolean("BACK Button Pressed", operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::BACK_BUTTON));
 }
 
 void TurretSubsystem::SetTurret(double turretPercent) {

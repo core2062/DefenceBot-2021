@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include <CORERobotLib.h>
 #include <ctre/Phoenix.h>
@@ -15,4 +15,4 @@ public:
 private:
     TalonSRX m_topMotor, m_bottomMotor;
     double m_topMotorSpeed, m_bottomMotorSpeed;
-};
+};*/
