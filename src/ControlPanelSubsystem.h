@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 
 #include <CORERobotLib.h>
 #include <Robot.h>
@@ -14,4 +14,4 @@ public:
     void teleop() override;
 private:
     rev::ColorSensorV3 m_colorSensor{i2cPort};
-};*/
+};

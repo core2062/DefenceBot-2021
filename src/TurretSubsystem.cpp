@@ -31,7 +31,7 @@ void TurretSubsystem::teleop() {
     bool atRightStop = m_turret.GetSelectedSensorPosition(0) > (m_startupTurretPosition + 468.0);
 
     if (backButtonPressed) {
-        // auto position turret
+        // auto turret position
         corePID.SetDerivativeConstant(m_KD.Get());
         corePID.SetFeedForwardConstant(m_KF.Get());
         corePID.SetIntegralConstant(m_KI.Get());
