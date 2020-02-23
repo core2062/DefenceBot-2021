@@ -13,7 +13,7 @@ public:
     void setMotor(double conveyorSpeed);
 
 private: 
-    TalonSRX m_conveyorMotor1, m_conveyorMotor2;
+    TalonSRX m_conveyorMotor1, m_conveyorMotor2, m_conveyorMotor3;
     COREConstant<double> m_conveyorSpeed;
 };
 

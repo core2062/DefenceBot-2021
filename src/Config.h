@@ -6,9 +6,10 @@
 #define LEFT_FRONT_PORT 19
 #define LEFT_BACK_PORT 32
 #define INTAKE_PORT 15
-#define CONVEYOR_1_PORT 15
-#define CONVEYOR_2_PORT 16
-#define TURRET_PORT 17
+#define CONVEYOR_1_PORT 17
+#define CONVEYOR_2_PORT 18
+#define CONVEYOR_3_PORT 21
+#define TURRET_PORT 22
 
 
 /* Solenoids */
@@ -24,5 +25,4 @@
 
 
 /* Launcher Ports */
-#define TOP_LAUNCHER_MOTOR_PORT 15
 #define BOTTOM_LAUNCHER_MOTOR_PORT 16

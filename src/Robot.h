@@ -27,11 +27,11 @@ public:
 	void test() override;
 	void testInit() override;
 	static Robot * GetInstance();
-	// DriveSubsystem driveSubsystem;
-	// LauncherSubsystem launcherSubsystem;
-	// IntakeSubsystem intakeSubsystem;
+	DriveSubsystem driveSubsystem;
+	LauncherSubsystem launcherSubsystem;
+	IntakeSubsystem intakeSubsystem;
 	TurretSubsystem turretSubsystem;
-	// ConveyorSubsystem conveyorSubsystem;
+	ConveyorSubsystem conveyorSubsystem;
 
 private:
 	static Robot * m_instance;

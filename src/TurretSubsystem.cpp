@@ -38,7 +38,7 @@ void TurretSubsystem::teleop() {
         motorPercent = CalculateMotorFromVision(atLeftStop, atRightStop);
     } else if ((!atRightStop && manualInput < 0) || (!atLeftStop && manualInput > 0)) {
         // manual turret position
-        motorPercent = 0.1 * manualInput;
+        motorPercent = -0.25 * manualInput;
     }
     SetTurret(motorPercent);
 

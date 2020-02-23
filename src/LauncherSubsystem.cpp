@@ -6,18 +6,18 @@ LauncherSubsystem::LauncherSubsystem() : m_launcherMotor(BOTTOM_LAUNCHER_MOTOR_P
 }
 
 void LauncherSubsystem::robotInit() {
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
+    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::B_BUTTON);
 }
 
 void LauncherSubsystem::teleopInit() {
+    m_launcherOn = false;
 }
 
 void LauncherSubsystem::teleop() {
-    m_launcherOn = false;
 
-    if (!m_launcherOn && operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
+    if (!m_launcherOn && operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::B_BUTTON)) {
         m_launcherOn = true;
-    } else if (m_launcherOn && operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
+    } else if (m_launcherOn && operatorJoystick->GetRisingEdge(CORE::COREJoystick::JoystickButton::B_BUTTON)) {
         m_launcherOn = false;
     }
 
@@ -28,7 +28,7 @@ void LauncherSubsystem::teleop() {
 
 void LauncherSubsystem::launcherOn(bool m_launcherOn) {
     if (m_launcherOn) {
-        m_launcherMotor.Set(ControlMode::PercentOutput, 0.38);
+        m_launcherMotor.Set(ControlMode::PercentOutput, 0.25);
     } else {
         m_launcherMotor.Set(ControlMode::PercentOutput, 0.0);
     }
