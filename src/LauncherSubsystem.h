@@ -17,4 +17,5 @@ public:
 private:
     TalonSRX m_launcherMotor;
     bool m_launcherOn;
+     COREConstant<double> m_launcherSpeed;
 };

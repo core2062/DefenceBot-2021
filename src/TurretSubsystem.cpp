@@ -21,6 +21,7 @@ void TurretSubsystem::robotInit() {
     ntinst = nt::NetworkTableInstance::GetDefault();
     ntinst.StartClientTeam(2062);
 
+
 }
 
 void TurretSubsystem::teleopInit() {
@@ -31,14 +32,14 @@ void TurretSubsystem::teleop() {
     double manualInput = -operatorJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_X);
     bool backButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::BACK_BUTTON);
     double motorPercent = 0;
-    bool atLeftStop = m_turret.GetSelectedSensorPosition(0) < (m_startupTurretPosition - 468.0);
-    bool atRightStop = m_turret.GetSelectedSensorPosition(0) > (m_startupTurretPosition + 468.0);
+    bool atLeftStop = m_turret.GetSelectedSensorPosition(0) < (m_startupTurretPosition - 7000.0);
+    bool atRightStop = m_turret.GetSelectedSensorPosition(0) > (m_startupTurretPosition + 7000.0);
 
     if (backButtonPressed) {
         motorPercent = CalculateMotorFromVision(atLeftStop, atRightStop);
     } else if ((!atRightStop && manualInput < 0) || (!atLeftStop && manualInput > 0)) {
         // manual turret position
-        motorPercent = -0.25 * manualInput;
+        motorPercent = 0.25 * manualInput;
     }
     SetTurret(motorPercent);
 
@@ -85,6 +86,7 @@ void TurretSubsystem::InitTalons() {
 	m_turret.Set(ControlMode::PercentOutput, 0);
     // Zero the sensor
     m_turret.SetSelectedSensorPosition(0, 0, 10);
+    m_turret.SetInverted(true);
 }
 
 void TurretSubsystem::SetTurret(double turretPercent) {
