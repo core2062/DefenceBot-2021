@@ -86,8 +86,8 @@ void DriveSubsystem::initTalons() {
 	// Motor Inversion
 	m_leftMaster.SetInverted(false);
 	m_leftSlave.SetInverted(false);
-	m_rightMaster.SetInverted(true);
-	m_rightSlave.SetInverted(true);
+	m_rightMaster.SetInverted(false);
+	m_rightSlave.SetInverted(false);
 }
 
 void DriveSubsystem::teleopEnd() {}
