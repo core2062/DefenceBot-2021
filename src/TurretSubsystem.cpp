@@ -36,8 +36,10 @@ void TurretSubsystem::teleop() {
     bool atRightStop = m_turret.GetSelectedSensorPosition(0) > (m_startupTurretPosition + 7000.0);
 
     if (backButtonPressed) {
+        nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("ledMode",3);
         motorPercent = CalculateMotorFromVision(atLeftStop, atRightStop);
     } else if ((!atRightStop && manualInput < 0) || (!atLeftStop && manualInput > 0)) {
+         nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("ledMode",1);
         // manual turret position
         motorPercent = 0.25 * manualInput;
     }
