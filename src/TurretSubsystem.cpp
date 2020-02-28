@@ -37,9 +37,11 @@ void TurretSubsystem::teleop() {
 
     if (backButtonPressed) {
         nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("ledMode",3);
+        nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("camMode",0);
         motorPercent = CalculateMotorFromVision(atLeftStop, atRightStop);
     } else if ((!atRightStop && manualInput < 0) || (!atLeftStop && manualInput > 0)) {
          nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("ledMode",1);
+         nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("camMode",1);
         // manual turret position
         motorPercent = 0.25 * manualInput;
     }
