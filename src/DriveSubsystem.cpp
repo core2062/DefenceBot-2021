@@ -81,13 +81,13 @@ void DriveSubsystem::initTalons() {
     m_rightMaster.ConfigSelectedFeedbackSensor(ctre::phoenix::motorcontrol::FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
 
 	m_leftSlave.SetSensorPhase(false);
-    m_rightMaster.SetSensorPhase(true);
+    m_rightMaster.SetSensorPhase(false);
 
 	// Motor Inversion
 	m_leftMaster.SetInverted(false);
 	m_leftSlave.SetInverted(false);
-	m_rightMaster.SetInverted(false);
-	m_rightSlave.SetInverted(false);
+	m_rightMaster.SetInverted(true);
+	m_rightSlave.SetInverted(true);
 }
 
 void DriveSubsystem::teleopEnd() {}
