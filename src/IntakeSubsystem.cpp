@@ -2,7 +2,7 @@
 
 IntakeSubsystem::IntakeSubsystem() : m_intakeMotor(INTAKE_PORT), 
                                      m_intakeSolenoid(LEFT_DRIVE_SHIFTER_PCM, INTAKE_DOWN_PORT, INTAKE_UP_PORT),
-                                     m_intakeSpeed("Intake Speed", 0){
+                                     m_intakeSpeed("Intake Speed", 0.45){
 }
 
 void IntakeSubsystem::robotInit(){

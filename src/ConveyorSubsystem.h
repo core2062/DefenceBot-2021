@@ -10,7 +10,8 @@ public:
     void robotInit() override;
     void teleopInit() override;
     void teleop() override;
-    void setMotor(double lowerConveyorSpeed, double upperConveyorSpeed);
+    void setLowerMotor(double lowerConveyorSpeed);
+    void setUpperMotor(double upperConveyorSpeed);
 
 private: 
     TalonSRX m_lowerConveyorMotor, m_frontConveyorMotor, m_backConveyorMotor;

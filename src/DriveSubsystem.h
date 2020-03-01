@@ -28,10 +28,12 @@ public:
 	void fillCompressor();
 	void toggleGear();
 	COREVector path;
+
 private:
     TalonSRX m_leftMaster, m_rightMaster, m_leftSlave, m_rightSlave;
     COREConstant<double> m_etherAValue, m_etherBValue, m_etherQuickTurnValue, m_ticksPerInch;
     DoubleSolenoid m_leftDriveShifter, m_rightDriveShifter;
     bool m_highGear;
     Compressor compressor;
+	
 };

@@ -17,7 +17,7 @@ private:
     double m_startupTurretPosition;
     nt::NetworkTableInstance ntinst;
     //Distance Coefficent A,B,C,D
-    COREConstant<double> m_KP, m_KI, m_KD, m_KF, m_DistCoefA, m_DistCoefB, m_DistCoefC, m_DistCoefD /*, m_DistCoffee*/;
+    COREConstant<double> m_KP, m_KI, m_KD, m_KF, m_turretSpeed, m_DistCoefA, m_DistCoefB /*, m_DistCoefC, m_DistCoefD, m_DistCoffee*/;
     COREPID corePID;
 
 public:
@@ -29,4 +29,5 @@ public:
     double GetDistance();
     void InitTalons();
     void SetTurret(double turretPercent);
+
 };
