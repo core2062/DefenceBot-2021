@@ -17,5 +17,5 @@ public:
 
 private:
     bool m_climberExtended;
-    DoubleSolenoid m_climber;
+    DoubleSolenoid m_climberSolnoidOne, m_climberSolnoidTwo;
 };
