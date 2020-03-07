@@ -9,49 +9,55 @@ TurretSubsystem::TurretSubsystem(): m_turret(TURRET_PORT),
                                     m_DistCoefA("DistCoefA", 0),
                                     m_DistCoefB("DistCoefB", 0),
                                     corePID(0, 0, 0, 0) {
-    std::cout << "Turret Subsystem constructer called" << std::endl;
 }
 
 void TurretSubsystem::robotInit() {
+    m_startupTurretPosition = m_turret.GetSelectedSensorPosition(0);
     operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::A_BUTTON);
     operatorJoystick->RegisterAxis(CORE::COREJoystick::LEFT_STICK_X);
     InitTalons();
     // start NetworkTables
     ntinst = nt::NetworkTableInstance::GetDefault();
     ntinst.StartClientTeam(2062);
-
-
+    m_turret.SetNeutralMode(motorcontrol::NeutralMode::Brake);
 }
 
 void TurretSubsystem::teleopInit() {
-    m_startupTurretPosition = m_turret.GetSelectedSensorPosition(0);
 }
 
 void TurretSubsystem::teleop() {
     double manualInput = -operatorJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_X);
     bool aButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::A_BUTTON);
-    double motorPercent = 0;
+    m_motorPercent = 0;
     bool atLeftStop = m_turret.GetSelectedSensorPosition(0) < (m_startupTurretPosition - 7000.0);
     bool atRightStop = m_turret.GetSelectedSensorPosition(0) > (m_startupTurretPosition + 7000.0);
 
     if (aButtonPressed) {
-        nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("ledMode",3);
-        nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("camMode",0);
-        motorPercent = CalculateMotorFromVision(atLeftStop, atRightStop);
+        m_motorPercent = VisionMove(atLeftStop, atRightStop);
     } else if ((!atRightStop && manualInput < 0) || (!atLeftStop && manualInput > 0)) {
          nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("ledMode",1);
          nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("camMode",1);
         // manual turret position
         double turretSpeed = m_turretSpeed.Get();
-        motorPercent = turretSpeed * manualInput;
+        m_motorPercent = turretSpeed * manualInput;
     }
-    SetTurret(motorPercent);
+    SetTurret(m_motorPercent);
 
     SmartDashboard::PutNumber("Distance from target", GetDistance());
     SmartDashboard::PutNumber("Turret position", m_turret.GetSelectedSensorPosition(0));
     SmartDashboard::PutBoolean("At Left Stop", atLeftStop);
     SmartDashboard::PutBoolean("At Right Stop", atRightStop);
     SmartDashboard::PutBoolean("A Button Pressed", operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::A_BUTTON));
+}
+
+double TurretSubsystem::turretPosition() {
+    return m_turret.GetSelectedSensorPosition(0);
+}
+
+double TurretSubsystem::VisionMove(bool atLeftStop, bool atRightStop) {
+    nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("ledMode",3);
+    nt::NetworkTableInstance::GetDefault().GetTable("limelight")->PutNumber("camMode",0);
+    return m_motorPercent = CalculateMotorFromVision(atLeftStop, atRightStop);
 }
 
 double TurretSubsystem::CalculateMotorFromVision(bool atLeftStop, bool atRightStop) {
@@ -61,10 +67,10 @@ double TurretSubsystem::CalculateMotorFromVision(bool atLeftStop, bool atRightSt
     corePID.SetIntegralConstant(m_KI.Get());
     corePID.SetProportionalConstant(m_KP.Get());
     auto table = ntinst.GetTable("limelight");
-    bool hasCenterX = table->GetNumber("tv", 0.0) == 1;
+    hasCenterX = table->GetNumber("tv", 0.0) == 1;
     double conversion = 4096 / -360; // convert degrees to ticks
     // calculate center error as a percent output for the motor
-    double centerError = table->GetNumber("tx", 0.0) * conversion;
+    centerError = table->GetNumber("tx", 0.0) * conversion;
 
     SmartDashboard::PutNumber("Center Error", centerError);
     SmartDashboard::PutBoolean("HasTable", hasCenterX);

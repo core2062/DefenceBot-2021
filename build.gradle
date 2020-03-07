@@ -57,10 +57,12 @@ model {
             sources.cpp {
                 source {
                     srcDir 'src'
+                    srcDir 'src/auto'
                     include '**/*.cpp', '**/*.cc'
                 }
                 exportedHeaders {
                     srcDir 'src'
+                    srcDir 'src/auto'
                     srcDir '../CORERobotLib/src' 
                     srcDir '../CORERobotLib/3rdparty/json/src/'
                 }

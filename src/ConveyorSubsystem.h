@@ -13,8 +13,8 @@ public:
     void setLowerMotor(double lowerConveyorSpeed);
     void setUpperMotor(double upperConveyorSpeed);
 
+    COREConstant<double> lowerConveyorSpeed, upperConveyorSpeed;
 private: 
     TalonSRX m_lowerConveyorMotor, m_frontConveyorMotor, m_backConveyorMotor;
-    COREConstant<double> m_lowerConveyorSpeed, m_upperConveyorSpeed;
 };
 

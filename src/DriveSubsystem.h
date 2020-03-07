@@ -21,7 +21,8 @@ public:
 	void teleopInit() override;
 	void teleop() override;
 	void teleopEnd() override;
-
+	
+	double getRobotPosition();
 	void initTalons();
 	void setMotorSpeed(double speedInFraction, DriveSide whichSide);
 	void setMotorSpeed(double leftPercent, double rightPercent);

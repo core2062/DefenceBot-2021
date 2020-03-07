@@ -15,9 +15,11 @@ public:
     void teleop() override;
     void SetIntake(double intakeSpeed);
     void ToggleIntake();
+
+    COREConstant<double> intakeSpeed;
+
 private:
     TalonSRX m_intakeMotor;
     frc::DoubleSolenoid m_intakeSolenoid;
-    COREConstant<double> m_intakeSpeed;
     bool m_isIntakeDown;
 };
