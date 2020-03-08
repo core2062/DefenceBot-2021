@@ -7,10 +7,7 @@ TurretSubsystem::TurretSubsystem(): m_turret(TURRET_PORT),
                                     m_KF("KF", 1),
                                     m_DistCoefA("DistCoefA", 0),
                                     m_DistCoefB("DistCoefB", 0),
-                                    m_DistCoefC("DistCoefC", 0),
-                                    m_DistCoefD("DistCoefD", 0),
                                     corePID(0, 0, 0, 0) {
-    std::cout << "Turret Subsystem constructer called" << std::endl;
 }
 
 void TurretSubsystem::robotInit() {
@@ -79,7 +76,7 @@ double TurretSubsystem::CalculateMotorFromVision(bool atLeftStop, bool atRightSt
 double TurretSubsystem::GetDistance() {
     auto table = ntinst.GetTable("limelight");
     double x = table->GetNumber("thor", 0.0);
-    double a = m_DistCoefA.Get(), b = m_DistCoefB.Get(), c = m_DistCoefC.Get(), d = m_DistCoefD.Get();
+    double a = m_DistCoefA.Get(), b = m_DistCoefB.Get();
     //double distance = a * (x * x * x) + b * (x * x) + c * x + d;
     double distance = a * pow(x, b);
     return distance;

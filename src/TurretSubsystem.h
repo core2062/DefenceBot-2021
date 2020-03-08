@@ -16,8 +16,8 @@ private:
     TalonSRX m_turret;
     double m_startupTurretPosition;
     nt::NetworkTableInstance ntinst;
-    //Distance Coefficent A,B,C,D
-    COREConstant<double> m_KP, m_KI, m_KD, m_KF, m_DistCoefA, m_DistCoefB, m_DistCoefC, m_DistCoefD /*, m_DistCoffee*/;
+    //Distance Coefficent A,B
+    COREConstant<double> m_KP, m_KI, m_KD, m_KF, m_DistCoefA, m_DistCoefB/*, m_DistCoefC, m_DistCoefD , m_DistCoffee*/;
     COREPID corePID;
 
 public:
