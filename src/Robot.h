@@ -38,6 +38,7 @@ public:
 	TestRoutine testRoutine;
 	DriveRoutine driveRoutine;
 	ThreeBallRoutine threeBallRoutine;
+	ClimberSubsystem climberSubsystem;
 
 private:
 	static Robot * m_instance;

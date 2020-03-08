@@ -5,11 +5,6 @@
 #define RIGHT_BACK_PORT 14
 #define LEFT_FRONT_PORT 19
 #define LEFT_BACK_PORT 32
-#define INTAKE_PORT 15
-#define CONVEYOR_1_PORT 17
-#define CONVEYOR_2_PORT 18
-#define CONVEYOR_3_PORT 21
-#define TURRET_PORT 22
 
 
 /* Solenoids */
@@ -22,7 +17,18 @@
 #define RIGHT_DRIVE_SHIFTER_LOW_GEAR_PORT 1
 #define INTAKE_DOWN_PORT 4
 #define INTAKE_UP_PORT 5
+#define CLIMBER_UP_PORT_ONE 0
+#define CLIMBER_UP_PORT_TWO 2
+#define CLIMBER_DOWN_PORT_ONE 1
+#define CLIMBER_DOWN_PORT_TWO 3
 
 
 /* Launcher Ports */
 #define BOTTOM_LAUNCHER_MOTOR_PORT 16
+#define TURRET_PORT 22
+
+/* Intake and Conveyor Ports */
+#define INTAKE_PORT 15
+#define CONVEYOR_1_PORT 17
+#define CONVEYOR_2_PORT 18
+#define CONVEYOR_3_PORT 21
