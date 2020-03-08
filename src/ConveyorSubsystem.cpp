@@ -28,9 +28,9 @@ void ConveyorSubsystem::teleopInit() {}
 
 void ConveyorSubsystem::teleop(){
     
-    if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)) {
+    if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
         setLowerMotor(lowerConveyorSpeed.Get());
-    } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON)) {
+    } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
         setLowerMotor(-lowerConveyorSpeed.Get());
     } else {
         setLowerMotor(0.0);
