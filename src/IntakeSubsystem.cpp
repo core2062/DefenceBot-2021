@@ -8,8 +8,6 @@ IntakeSubsystem::IntakeSubsystem() :
 
 void IntakeSubsystem::robotInit(){
     m_intakeMotor.Set(ControlMode::PercentOutput, 0);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON);
     m_isIntakeDown = false;
     m_intakeMotor.SetInverted(true);
 }
@@ -17,6 +15,7 @@ void IntakeSubsystem::robotInit(){
 void IntakeSubsystem::teleopInit() {}
 
 void IntakeSubsystem::teleop(){
+    cout<<"Intake teleop"<<endl;
     if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER)){
        SetIntake(-intakeSpeed.Get());
     }

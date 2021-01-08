@@ -6,7 +6,7 @@ ClimberSubsystem::ClimberSubsystem() :
 }
 
 void ClimberSubsystem::robotInit() {
-    driverJoystick->RegisterButton(CORE::COREJoystick::Y_BUTTON);
+
 }
 
 void ClimberSubsystem::teleopInit() {

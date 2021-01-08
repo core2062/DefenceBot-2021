@@ -13,8 +13,6 @@ TurretSubsystem::TurretSubsystem(): m_turret(TURRET_PORT),
 
 void TurretSubsystem::robotInit() {
     m_startupTurretPosition = m_turret.GetSelectedSensorPosition(0);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::A_BUTTON);
-    operatorJoystick->RegisterAxis(CORE::COREJoystick::LEFT_STICK_X);
     InitTalons();
     // start NetworkTables
     ntinst = nt::NetworkTableInstance::GetDefault();
@@ -26,6 +24,7 @@ void TurretSubsystem::teleopInit() {
 }
 
 void TurretSubsystem::teleop() {
+    cout<<"Turret teleop"<<endl;
     double manualInput = -operatorJoystick->GetAxis(CORE::COREJoystick::JoystickAxis::LEFT_STICK_X);
     bool aButtonPressed = operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::A_BUTTON);
     m_motorPercent = 0;

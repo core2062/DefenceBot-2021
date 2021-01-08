@@ -7,7 +7,6 @@
 #include <CORERobotLib.h>
 #include <COREFramework/COREScheduler.h>
 #include "ClimberSubsystem.h"
-#include "ControlPanelSubsystem.h"
 #include "ConveyorSubsystem.h"
 #include "DriveSubsystem.h"
 #include "IntakeSubsystem.h"
@@ -17,6 +16,8 @@
 #include "TestRoutine.h"
 #include "DriveRoutine.h"
 #include "ThreeBallRoutine.h"
+#include "RobotContainer.h"
+#include "Autonomous/Auton.h"
 
 using namespace CORE;
 using namespace std;
@@ -24,6 +25,8 @@ using namespace std;
 class Robot : public CORERobot {
 public: 
  	Robot();
+	void RobotPeriodic() override;
+	void TeleopPeriodic() override;
 	void robotInit() override;
     void teleopInit() override;
     void teleop() override;
@@ -39,7 +42,10 @@ public:
 	DriveRoutine driveRoutine;
 	ThreeBallRoutine threeBallRoutine;
 	ClimberSubsystem climberSubsystem;
+	RobotContainer robotContainer;
+	Autonomous autonomous;
 
 private:
+  	frc2::Command* m_autonomousCommand = nullptr;
 	static Robot * m_instance;
 };

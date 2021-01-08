@@ -3,8 +3,9 @@
 #include <CORERobotLib.h>
 #include <ctre/Phoenix.h>
 #include "Config.h"
+#include <frc2/command/SubsystemBase.h>
 
-class ConveyorSubsystem : public CORESubsystem {
+class ConveyorSubsystem : public CORESubsystem, public frc2::SubsystemBase {
 public:
     ConveyorSubsystem();
     void robotInit() override;

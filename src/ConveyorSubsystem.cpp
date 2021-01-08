@@ -1,6 +1,6 @@
 #include "ConveyorSubsystem.h"
 
-using namespace CORE;
+// using namespace CORE;
 
 ConveyorSubsystem::ConveyorSubsystem() : m_lowerConveyorMotor(CONVEYOR_1_PORT),
                                          m_frontConveyorMotor(CONVEYOR_2_PORT),
@@ -16,18 +16,12 @@ void ConveyorSubsystem::robotInit(){
     m_backConveyorMotor.Set(ControlMode::PercentOutput, 0);
     m_lowerConveyorMotor.SetInverted(true);
     m_frontConveyorMotor.SetInverted(false);
-
-    /* Registers Controls */
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_TRIGGER);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::RIGHT_BUTTON);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER);
-    operatorJoystick->RegisterButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON);
 }
 
 void ConveyorSubsystem::teleopInit() {}
 
 void ConveyorSubsystem::teleop(){
-    
+    cout<<"Conveyer teleop"<<endl;
     if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_TRIGGER)) {
         setLowerMotor(lowerConveyorSpeed.Get());
     } else if(operatorJoystick->GetButton(CORE::COREJoystick::JoystickButton::LEFT_BUTTON)) {
