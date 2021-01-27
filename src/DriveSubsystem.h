@@ -6,19 +6,6 @@
 #include <AHRS.h>
 #include <CORERobotLib.h>
 #include <COREFramework/COREScheduler.h>
-
-#include <frc/Compressor.h>
-#include <frc/DoubleSolenoid.h>
-#include <frc/geometry/Pose2d.h>
-#include <frc/geometry/Rotation2d.h>
-#include <frc/SpeedControllerGroup.h>
-#include <frc/drive/DifferentialDrive.h>
-#include <frc/kinematics/DifferentialDriveWheelSpeeds.h>
-#include <frc/kinematics/DifferentialDriveKinematics.h>
-#include <frc/kinematics/DifferentialDriveOdometry.h>
-#include <frc2/command/SubsystemBase.h>
-#include <Constants.h>
-#include <iostream>
 #include <COREUtilities/CORETimer.h>
 #include "Config.h"
 
