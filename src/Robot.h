@@ -9,6 +9,9 @@
 
 #include "Config.h"
 #include "DriveSubsystem.h"
+#include "ConveyorSubsystem.h"
+#include "LauncherSubsystem.h"
+#include "ClimberSubsystem.h"
 
 using namespace CORE;
 using namespace std;
@@ -25,6 +28,9 @@ public:
 	void testInit() override;
 	static Robot * GetInstance();
 	DriveSubsystem driveSubsystem;
+	ClimberSubsystem ClimberSubsystem;
+	ConveyorSubsystem ConveyorSubsystem;
+	LauncherSubsystem LauncherSubsystem;
 
 private:
   	frc2::Command* m_autonomousCommand = nullptr;
