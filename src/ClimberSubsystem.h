@@ -9,8 +9,6 @@
 using namespace CORE;
 using namespace frc;
 
-enum class DriveSide{LEFT = 1, RIGHT = 2, BOTH = 3};
-
 class ClimberSubsystem : public CORESubsystem, public frc2::SubsystemBase {
 public:
 	ClimberSubsystem();
@@ -24,5 +22,9 @@ public:
 
 
 private:
-
+	TalonSRX m_stiltOne;
+	TalonSRX m_stiltTwo;
+	TalonSRX m_stiltThree;
+	TalonSRX m_stiltFour;
+	bool m_isClimbed;
 };
