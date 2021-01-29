@@ -67,6 +67,11 @@ model {
             if (includeDesktopSupport) {
                 targetPlatform wpi.platforms.desktop
             }
+            
+            binaries.all {
+                cppCompiler.args('-g')
+                linker.args("-L../CORERobotLib/lib/debug",'-lCORERobotLib')
+            }
 
             sources.cpp {
                 source {
@@ -78,6 +83,9 @@ model {
                     if (includeSrcInIncludeRoot) {
                         srcDir 'src'
                     }
+                    srcDir 'src'
+                    srcDir '../CORERobotLib/src' 
+                    srcDir '../CORERobotLib/3rdparty/json/src/'
                 }
             }
 
@@ -96,7 +104,6 @@ model {
                     include '**/*.cpp'
                 }
             }
-
             wpi.deps.vendor.cpp(it)
             wpi.deps.wpilib(it)
             wpi.deps.googleTest(it)
