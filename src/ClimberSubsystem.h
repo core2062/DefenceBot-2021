@@ -21,5 +21,9 @@ public:
 
 
 private:
-
+	TalonSRX m_stiltOne;
+	TalonSRX m_stiltTwo;
+	TalonSRX m_stiltThree;
+	TalonSRX m_stiltFour;
+	bool m_isClimbed;
 };
