@@ -1,7 +1,9 @@
 #pragma once
 
-#include <CORERobotLib.h>
+#include <frc/Compressor.h>
+#include <frc/DoubleSolenoid.h>
 #include <ctre/Phoenix.h>
+#include <CORERobotLib.h>
 #include "Config.h"
 
 class ConveyorSubsystem : public CORESubsystem {
@@ -17,3 +19,6 @@ private:
     TalonSRX m_conveyorMotor;
 };
 
+private:
+
+};

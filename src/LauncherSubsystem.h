@@ -1,20 +1,24 @@
 #pragma once
 
-#include <frc/smartdashboard/SmartDashboard.h>
+#include <frc/Compressor.h>
+#include <frc/DoubleSolenoid.h>
 #include <ctre/Phoenix.h>
 #include <CORERobotLib.h>
 #include "Config.h"
-#include <DriveSubsystem.h>
-#include <frc2/command/SubsystemBase.h>
 
-// using namespace frc;
+using namespace CORE;
+using namespace frc;
 
 class LauncherSubsystem : public CORESubsystem {
 public:
-    LauncherSubsystem();
-    void robotInit() override;
-    void teleopInit() override;
-    void teleop() override;
-    void launcherOn(bool m_launcherOn);
+	void LauncherSubsystem();
+	void robotInit() override;
+	void teleopInit() override;
+	void teleop() override;
+	void teleopEnd() override;
+	void auton();
+	void initTalons();
+
+
 private:
 };

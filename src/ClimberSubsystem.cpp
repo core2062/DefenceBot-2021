@@ -4,7 +4,7 @@ ClimberSubsystem::ClimberSubsystem() {
 }
 
 void ClimberSubsystem::robotInit() {
-
+    initTalons();
 }
 
 void ClimberSubsystem::teleopInit() {

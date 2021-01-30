@@ -1,6 +1,11 @@
 #include "ConveyorSubsystem.h"
 
-// using namespace CORE;
+ConveyorSubsystem::ConveyorSubsystem() :
+		
+}
+
+void ConveyorSubsystem::robotInit() {
+    initTalons();
 
 ConveyorSubsystem::ConveyorSubsystem() : conveyorSpeed("Conveyor Speed", 0.75),
                                          m_conveyorMotor(CONVEYOR_1_PORT) {

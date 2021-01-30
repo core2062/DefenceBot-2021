@@ -1,9 +1,10 @@
 #pragma once
 
+#include <frc/Compressor.h>
 #include <frc/DoubleSolenoid.h>
+#include <ctre/Phoenix.h>
 #include <CORERobotLib.h>
 #include "Config.h"
-#include <frc2/command/SubsystemBase.h>
 
 using namespace CORE;
 using namespace frc;
