@@ -13,11 +13,6 @@
 #include "LauncherSubsystem.h"
 #include "TurretSubsystem.h"
 #include "Config.h"
-#include "TestRoutine.h"
-#include "DriveRoutine.h"
-#include "ThreeBallRoutine.h"
-#include "RobotContainer.h"
-#include "Autonomous/Auton.h"
 
 using namespace CORE;
 using namespace std;
@@ -38,14 +33,8 @@ public:
 	IntakeSubsystem intakeSubsystem;
 	TurretSubsystem turretSubsystem;
 	ConveyorSubsystem conveyorSubsystem;
-	TestRoutine testRoutine;
-	DriveRoutine driveRoutine;
-	ThreeBallRoutine threeBallRoutine;
 	ClimberSubsystem climberSubsystem;
-	RobotContainer robotContainer;
-	Autonomous autonomous;
 
 private:
-  	frc2::Command* m_autonomousCommand = nullptr;
 	static Robot * m_instance;
 };
