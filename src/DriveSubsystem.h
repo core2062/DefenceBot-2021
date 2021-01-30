@@ -1,4 +1,4 @@
-#pragma once
+re	#pragma once
 
 #include <frc/Compressor.h>
 #include <frc/DoubleSolenoid.h>
@@ -53,9 +53,6 @@ public:
 private:
 	double m_wheelCircumference = 0.4787787204;
 	WPI_TalonSRX m_leftMaster, m_rightMaster, m_leftSlave, m_rightSlave;
-	SpeedControllerGroup m_leftMotors{m_leftSlave, m_leftMaster};
-	SpeedControllerGroup m_rightMotors{m_rightSlave, m_rightMaster};
-	DifferentialDrive m_drive{m_leftMotors, m_rightMotors};
     COREConstant<double> m_etherAValue, m_etherBValue, m_etherQuickTurnValue, m_ticksPerInch;
     DoubleSolenoid m_leftDriveShifter, m_rightDriveShifter;
     bool m_highGear;

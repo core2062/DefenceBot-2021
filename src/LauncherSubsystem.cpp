@@ -17,10 +17,6 @@ void LauncherSubsystem::teleop() {
 
 }
 
-void LauncherSubsystem::setMotorSpeed(double speedInFraction, DriveSide whichSide) {
-
-}
-
 void LauncherSubsystem::initTalons() {
 
 }

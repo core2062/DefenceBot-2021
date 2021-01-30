@@ -17,10 +17,6 @@ void ClimberSubsystem::teleop() {
 
 }
 
-void ClimberSubsystem::setMotorSpeed(double speedInFraction, DriveSide whichSide) {
-
-}
-
 void ClimberSubsystem::initTalons() {
 
 }

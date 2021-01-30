@@ -17,10 +17,6 @@ void ConveyorSubsystem::teleop() {
 
 }
 
-void ConveyorSubsystem::setMotorSpeed(double speedInFraction, DriveSide whichSide) {
-
-}
-
 void ConveyorSubsystem::initTalons() {
 
 }
