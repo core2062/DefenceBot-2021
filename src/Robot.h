@@ -10,6 +10,8 @@
 #include "Config.h"
 #include "DriveSubsystem.h"
 #include "LauncherSubsystem.h"
+#include "ConveyorSubsystem.h"
+#include "ClimberSubsystem.h"
 #include "Config.h"
 
 using namespace CORE;

@@ -15,6 +15,7 @@ public:
     void robotInit() override;
     void teleopInit() override;
     void teleop() override;
+    void initTalons();
 
 private:
 

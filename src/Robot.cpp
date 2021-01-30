@@ -11,7 +11,6 @@ void Robot::robotInit() {
 }
 
 void Robot::RobotPeriodic() {
-    frc2::CommandScheduler::GetInstance().Run();
 }
 
 void Robot::TeleopPeriodic() {

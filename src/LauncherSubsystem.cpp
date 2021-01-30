@@ -17,8 +17,13 @@ void LauncherSubsystem::teleop() {
 
 }
 
-void LauncherSubsystem::launcherOn(bool m_launcherOn) {
+void LauncherSubsystem::launcherOn() {
 
+}
 void LauncherSubsystem::teleopEnd() {
 	
+}
+
+void LauncherSubsystem::initTalons(){
+
 }

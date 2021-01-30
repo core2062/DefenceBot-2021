@@ -17,3 +17,6 @@ void ClimberSubsystem::teleop() {
 
 }
 
+void ClimberSubsystem::initTalons(){
+
+}

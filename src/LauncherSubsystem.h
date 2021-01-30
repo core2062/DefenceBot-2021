@@ -11,14 +11,14 @@ using namespace frc;
 
 class LauncherSubsystem : public CORESubsystem {
 public:
-	void LauncherSubsystem();
+	LauncherSubsystem();
 	void robotInit() override;
 	void teleopInit() override;
 	void teleop() override;
 	void teleopEnd() override;
 	void auton();
 	void initTalons();
-
+    void launcherOn();
 
 private:
 };

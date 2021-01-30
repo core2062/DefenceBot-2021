@@ -1,20 +1,12 @@
 #include "ConveyorSubsystem.h"
 
-ConveyorSubsystem::ConveyorSubsystem() :
-		
-}
-
-void ConveyorSubsystem::robotInit() {
-    initTalons();
-
 ConveyorSubsystem::ConveyorSubsystem() : conveyorSpeed("Conveyor Speed", 0.75),
                                          m_conveyorMotor(CONVEYOR_1_PORT) {
 }
 
 void ConveyorSubsystem::robotInit(){
     /* Inits Talons */
-    m_conveyorMotor.Set(ControlMode::PercentOutput, 0);
-    m_conveyorMotor.SetInverted(true);
+    initTalons();
 }
 
 void ConveyorSubsystem::teleopInit() {
@@ -31,6 +23,11 @@ void ConveyorSubsystem::teleop(){
         setMotor(0.0);
     }
    
+}
+
+void ConveyorSubsystem::initTalons(){
+    m_conveyorMotor.Set(ControlMode::PercentOutput, 0);
+    m_conveyorMotor.SetInverted(true);
 }
 
 void ConveyorSubsystem::setMotor(double conveyorSpeed){
