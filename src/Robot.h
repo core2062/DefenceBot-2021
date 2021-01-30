@@ -9,9 +9,7 @@
 #include "ClimberSubsystem.h"
 #include "ConveyorSubsystem.h"
 #include "DriveSubsystem.h"
-#include "IntakeSubsystem.h"
 #include "LauncherSubsystem.h"
-#include "TurretSubsystem.h"
 #include "Config.h"
 
 using namespace CORE;
@@ -30,8 +28,6 @@ public:
 	static Robot * GetInstance();
 	DriveSubsystem driveSubsystem;
 	LauncherSubsystem launcherSubsystem;
-	IntakeSubsystem intakeSubsystem;
-	TurretSubsystem turretSubsystem;
 	ConveyorSubsystem conveyorSubsystem;
 	ClimberSubsystem climberSubsystem;
 

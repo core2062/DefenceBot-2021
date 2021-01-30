@@ -8,15 +8,13 @@
 using namespace CORE;
 using namespace frc;
 
-class ClimberSubsystem : public CORESubsystem, public frc2::SubsystemBase {
+class ClimberSubsystem : public CORESubsystem {
 public:
     ClimberSubsystem();
     void robotInit() override;
     void teleopInit() override;
     void teleop() override;
-    void climberMove(bool m_climberExtended);
 
 private:
-    bool m_climberExtended;
-    DoubleSolenoid m_climberSolnoidOne, m_climberSolnoidTwo;
+
 };
