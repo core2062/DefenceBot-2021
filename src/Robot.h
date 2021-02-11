@@ -9,9 +9,6 @@
 
 #include "Config.h"
 #include "DriveSubsystem.h"
-#include "LauncherSubsystem.h"
-#include "ConveyorSubsystem.h"
-#include "ClimberSubsystem.h"
 #include "Config.h"
 
 using namespace CORE;
@@ -29,9 +26,6 @@ public:
 	void testInit() override;
 	static Robot * GetInstance();
 	DriveSubsystem driveSubsystem;
-	LauncherSubsystem launcherSubsystem;
-	ConveyorSubsystem conveyorSubsystem;
-	ClimberSubsystem climberSubsystem;
 
 private:
 	static Robot * m_instance;
